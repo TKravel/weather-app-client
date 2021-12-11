@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import SearchInput from './components/SearchInput';
+import CurrentDay from './components/CurrentDay';
 
 function App() {
 	const [location, setLocation] = useState('');
@@ -30,8 +31,8 @@ function App() {
 	return (
 		<>
 			<SearchInput setUserLocation={setLocation} />
-			<h1>Hello world</h1>
-			<p>{currentWeather}</p>
+
+			<CurrentDay />
 		</>
 	);
 }
