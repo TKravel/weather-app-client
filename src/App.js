@@ -4,6 +4,7 @@ import SearchInput from './components/SearchInput';
 import CurrentDay from './components/CurrentDay';
 import { getCurrentHour } from './utils/helperFuncs';
 import HourlySection from './components/hourly/HourlySection';
+import ExtenedSection from './components/extendedForecast/ExtendedSection';
 
 function App() {
 	const [location, setLocation] = useState('');
@@ -81,6 +82,7 @@ function App() {
 				<>
 					<CurrentDay currentData={currentWeather} />
 					<HourlySection dailyForecast={forecast[0]} />
+					<ExtenedSection extendedForecast={forecast} />
 				</>
 			)}
 		</>
