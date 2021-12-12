@@ -2,7 +2,6 @@ import React from 'react';
 import { convertTo12Hr, getIconPath } from '../../utils/helperFuncs';
 
 const HourlyCard = ({ hourlyData }) => {
-	console.log(getIconPath(hourlyData.condition.icon));
 	const icon = '/icons' + getIconPath(hourlyData.condition.icon);
 	return (
 		<div>

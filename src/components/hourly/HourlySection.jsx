@@ -10,9 +10,6 @@ const HourlySection = ({ dailyForecast }) => {
 	const displayableHrData = dailyHrData.filter((item, index) => {
 		return index >= currentHour;
 	});
-	console.log(displayableHrData);
-	console.log(dailyHrData);
-	console.log(dailyForecast.hour);
 	return (
 		<div>
 			<h2>Hourly</h2>

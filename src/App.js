@@ -27,6 +27,9 @@ function App() {
 	});
 
 	useEffect(() => {
+		if (location === '') {
+			return;
+		}
 		console.log('fetched triggered');
 		const locationData = {
 			userLocation: location,
@@ -66,8 +69,8 @@ function App() {
 					});
 					setForecast(data.forecast.forecastday);
 					setIsLoading(false);
-				} else {
-					console.log(data.info);
+				} else if (data.error) {
+					console.log(data.error);
 				}
 			})
 			.catch((err) => {
