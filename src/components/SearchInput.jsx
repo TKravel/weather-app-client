@@ -7,7 +7,13 @@ const SearchInput = ({ setUserLocation }) => {
 	const parseGeo = (longLat) => {
 		console.log(longLat);
 		console.log(longLat.coords.latitude);
-		return longLat.coords.latitude + ',' + longLat.coords.longitude;
+		const lat = longLat.coords.latitude;
+		const long = longLat.coords.longitude;
+
+		const result = lat + ',' + long;
+		console.log(result);
+		setUserLocation(result);
+		return result;
 	};
 
 	const handleChange = (e) => {
@@ -23,9 +29,16 @@ const SearchInput = ({ setUserLocation }) => {
 		console.log('Form submitted: ' + userInput);
 	};
 
-	const handleClick = () => {
+	const handleClick = (e) => {
+		console.log('clickeed');
+
 		if (navigator.geolocation) {
+			console.log('setPos');
 			setPosition(() => {
+				return navigator.geolocation.getCurrentPosition(parseGeo);
+			});
+			console.log('setLoc');
+			setUserLocation(() => {
 				return navigator.geolocation.getCurrentPosition(parseGeo);
 			});
 		} else {
@@ -34,17 +47,19 @@ const SearchInput = ({ setUserLocation }) => {
 		console.log(postion);
 	};
 	return (
-		<form onSubmit={handleSubmit}>
-			<input
-				type='text'
-				name='location'
-				placeholder='Zip code or town'
-				value={userInput}
-				onChange={handleChange}
-			/>
-			<button type='submit'>Search</button>
+		<>
+			<form onSubmit={handleSubmit}>
+				<input
+					type='text'
+					name='location'
+					placeholder='Zip code or town'
+					value={userInput}
+					onChange={handleChange}
+				/>
+				<button type='submit'>Search</button>
+			</form>
 			<button onClick={handleClick}>GPS</button>
-		</form>
+		</>
 	);
 };
 
