@@ -2,10 +2,13 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 import SearchInput from './components/SearchInput';
 import CurrentDay from './components/CurrentDay';
-import { currentHour } from './utils/helperFuncs';
+import { getCurrentHour } from './utils/helperFuncs';
+import HourlySection from './components/hourly/HourlySection';
 
 function App() {
 	const [location, setLocation] = useState('');
+	const [forecast, setForecast] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
 	const [currentWeather, setCurrentWeather] = useState({
 		name: '',
 		region: '',
@@ -21,6 +24,7 @@ function App() {
 		sunrise: '',
 		sunset: '',
 	});
+
 	useEffect(() => {
 		console.log('fetched triggered');
 		const locationData = {
@@ -36,7 +40,7 @@ function App() {
 				if (data) {
 					console.log('data recieved');
 					console.log(data);
-					const currentHrIdx = currentHour();
+					const currentHrIdx = getCurrentHour();
 					setCurrentWeather({
 						name: data.location.name,
 						region: data.location.region,
@@ -44,7 +48,7 @@ function App() {
 						low: data.forecast.forecastday[0].day.mintemp_f,
 						high: data.forecast.forecastday[0].day.maxtemp_f,
 						humidity: data.current.humidity,
-						rainChance:
+						dailyRainChance:
 							data.forecast.forecastday[0].day
 								.daily_chance_of_rain,
 						feelsLike: data.current.feelslike_f,
@@ -59,6 +63,8 @@ function App() {
 						sunrise: data.forecast.forecastday[0].astro.sunrise,
 						sunset: data.forecast.forecastday[0].astro.sunset,
 					});
+					setForecast(data.forecast.forecastday);
+					setIsLoading(false);
 				} else {
 					console.log(data.info);
 				}
@@ -71,7 +77,12 @@ function App() {
 		<>
 			<SearchInput setUserLocation={setLocation} />
 
-			<CurrentDay currentData={currentWeather} />
+			{!isLoading && (
+				<>
+					<CurrentDay currentData={currentWeather} />
+					<HourlySection dailyForecast={forecast[0]} />
+				</>
+			)}
 		</>
 	);
 }

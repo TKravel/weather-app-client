@@ -28,7 +28,7 @@ const CurrentDay = ({ currentData }) => {
 						</p>
 					</div>
 					<div>
-						<p>Rain: {currentData.rainChance}%</p>
+						<p>Rain: {currentData.dailyRainChance}%</p>
 					</div>
 				</div>
 			</div>
