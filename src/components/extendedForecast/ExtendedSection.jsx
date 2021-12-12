@@ -3,11 +3,13 @@ import ExtendedCard from './ExtendedCard';
 
 const ExtenedSection = ({ extendedForecast }) => {
 	return (
-		<div>
+		<div className='section-wrapper'>
 			<h2>Extended section</h2>
-			{extendedForecast.map((day, index) => {
-				return <ExtendedCard key={index} cardData={day} />;
-			})}
+			<div className='extended-container'>
+				{extendedForecast.map((day, index) => {
+					return <ExtendedCard key={index} cardData={day} />;
+				})}
+			</div>
 		</div>
 	);
 };

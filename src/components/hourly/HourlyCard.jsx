@@ -4,8 +4,9 @@ import { convertTo12Hr, getIconPath } from '../../utils/helperFuncs';
 const HourlyCard = ({ hourlyData }) => {
 	const icon = '/icons' + getIconPath(hourlyData.condition.icon);
 	return (
-		<div>
+		<div className='hourly-card'>
 			<h3>{convertTo12Hr(hourlyData.time)}</h3>
+
 			<div>
 				<p>
 					{hourlyData.temp_f}

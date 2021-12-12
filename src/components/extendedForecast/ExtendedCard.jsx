@@ -4,7 +4,7 @@ import { getIconPath } from '../../utils/helperFuncs';
 const ExtendedCard = ({ cardData }) => {
 	const icon = '/icons' + getIconPath(cardData.day.condition.icon);
 	return (
-		<div>
+		<div className='extended-card'>
 			<h3>{cardData.date}</h3>
 			<div>
 				<p>
