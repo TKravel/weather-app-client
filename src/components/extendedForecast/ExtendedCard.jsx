@@ -5,11 +5,11 @@ import ToggleButton from '../ToggleButton';
 const ExtendedCard = ({ cardData }) => {
 	const [expandedDisplay, setExpandedDisplay] = useState(false);
 	const icon = '/icons' + getIconPath(cardData.day.condition.icon);
-	let cardDate = cardData.date;
-	cardDate = cardDate.splice(5);
+	// let cardDate = cardData.date;
+	// cardDate = cardDate.splice(5);
 	return (
 		<div className='extended-card'>
-			<h3>{cardDate}</h3>
+			<h3>{cardData.date}</h3>
 			<div>
 				<p>
 					High: {cardData.day.maxtemp_f}
