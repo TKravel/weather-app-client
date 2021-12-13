@@ -49,6 +49,7 @@ img {
 
 html {
 	background-color: var(--main-dark);
+	line-height: 1.5;
 	min-height: 100vh;
 	width: 100vw;
 	text-align: center;
@@ -167,8 +168,8 @@ html {
 	margin-top: 0.5em;
 }
 
-path {
-	color: var(--main-dark);
+.gps-btn {
+	margin-left: 1em;
 }
 
 .expanded {

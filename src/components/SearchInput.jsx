@@ -68,7 +68,7 @@ const SearchInput = ({ setUserLocation }) => {
 					/>
 					<button type='submit'>Search</button>
 				</form>
-				<div onClick={handleClick}>
+				<div onClick={handleClick} className='gps-btn'>
 					<GpsIcon />
 				</div>
 			</div>

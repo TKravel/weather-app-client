@@ -9,7 +9,7 @@ export const convertTo12Hr = (string) => {
 	const stringLength = string.length;
 	const hour = string.slice(stringLength - 5, stringLength - 3);
 
-	const amOrPm = hour > 12 ? 'PM' : 'AM';
+	const amOrPm = hour >= 12 ? 'PM' : 'AM';
 	let time = hour % 12 || 12;
 	time += ':00 ' + amOrPm;
 
