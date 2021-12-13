@@ -7,22 +7,19 @@ const HourlyCard = ({ hourlyData }) => {
 		<div className='hourly-card'>
 			<h3>{convertTo12Hr(hourlyData.time)}</h3>
 
-			<div>
-				<p>
-					{hourlyData.temp_f}
-					{'\u00B0'}
-				</p>
-				<img src={icon} />
-				<p>Rain chance: {hourlyData.chance_of_rain}%</p>
-				<p>Expand</p>
-			</div>
-			<div>
-				<p>
-					Wind: {hourlyData.wind_mph} MPH {hourlyData.wind_dir}
-				</p>
-				<p>Humidity: {hourlyData.humidity}%</p>
-				<p>Rain amount: {hourlyData.precip_in}"</p>
-			</div>
+			<img src={icon} alt={hourlyData.condition.text} />
+			<p>
+				{hourlyData.temp_f}
+				{'\u00B0'}
+			</p>
+
+			<p>Rain chance: {hourlyData.chance_of_rain}%</p>
+			<p>Rain amount: {hourlyData.precip_in}"</p>
+
+			<p>
+				Wind: {hourlyData.wind_mph} MPH {hourlyData.wind_dir}
+			</p>
+			<p>Humidity: {hourlyData.humidity}%</p>
 		</div>
 	);
 };

@@ -50,6 +50,7 @@ img {
 html {
 	background-color: var(--main-dark);
 	min-height: 100vh;
+	width: 100vw;
 	text-align: center;
 }
 
@@ -62,10 +63,37 @@ html {
 .section-wrapper {
 	background-color: var(--main-mid);
 	border: 2px solid #000;
-	border-radius: 1em;
+	border-radius: 0.5em;
 	width: 90%;
 	padding: 1em;
 	margin: 2em auto 2em auto;
+}
+
+.hourly-wrapper {
+	background-color: var(--main-mid);
+	border: 2px solid #000;
+	border-radius: 0.5em;
+	width: 90%;
+	padding: 1em;
+	margin: 2em auto 2em auto;
+}
+
+@media screen and (max-width: 500px) {
+	.section-wrapper {
+		width: 100%;
+	}
+
+	.hourly-wrapper {
+		width: 100%;
+		padding: 1em 0em 1em 1em;
+	}
+}
+
+.search-container {
+	display: flex;
+	justify-content: center;
+	margin-top: 1em;
+	margin-bottom: 2em;
 }
 
 .current-card {
@@ -73,11 +101,17 @@ html {
 	border: 2px solid #000;
 	border-radius: 0.5em;
 	width: 50%;
-	padding: 2em;
+	padding: 2em 2em 0.5em 2em;
 	margin: 0.2em auto 0.2em auto;
 }
 
-.card-container {
+@media screen and (max-width: 500px) {
+	.current-card {
+		width: 100%;
+	}
+}
+
+.hourlyCard-container {
 	display: flex;
 	flex-direction: column;
 }
@@ -89,19 +123,58 @@ html {
 	width: 95%;
 	margin: 0.2em auto 0.2em auto;
 	display: flex;
-	justify-content: center;
+	justify-content: space-around;
 	align-items: center;
+}
+
+@media screen and (max-width: 500px) {
+	.hourlyCard-container {
+		flex-direction: row;
+		overflow: hidden;
+		overflow-x: scroll;
+	}
+	.hourly-card {
+		flex-direction: column;
+		min-width: 40%;
+	}
 }
 
 .extended-container {
 	display: flex;
+	justify-content: center;
 	padding: 0.5em;
+}
+
+@media screen and (max-width: 500px) {
+	.extended-container {
+		flex-wrap: wrap;
+	}
+	.extended-card {
+		width: 100%;
+	}
 }
 
 .extended-card {
 	background-color: var(--main-light);
 	border: 2px solid #000;
 	border-radius: 0.5em;
-	width: 88%;
+	max-width: 88%;
 	margin: 0.2em;
+	padding: 1em 1em 0.5em 1em;
+}
+
+.toggle-btn {
+	margin-top: 0.5em;
+}
+
+path {
+	color: var(--main-dark);
+}
+
+.expanded {
+	display: block;
+}
+
+.collapsed {
+	display: none;
 }

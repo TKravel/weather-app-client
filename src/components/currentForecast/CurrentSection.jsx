@@ -1,7 +1,7 @@
 import React from 'react';
-import CurrentCard from './currentForecast/CurrentCard';
+import CurrentCard from './CurrentCard';
 
-const CurrentDay = ({ forecast }) => {
+const CurrentSection = ({ forecast }) => {
 	return (
 		<div className='section-wrapper'>
 			<CurrentCard forecast={forecast} />
@@ -9,4 +9,4 @@ const CurrentDay = ({ forecast }) => {
 	);
 };
 
-export default CurrentDay;
+export default CurrentSection;

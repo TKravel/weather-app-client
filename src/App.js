@@ -1,7 +1,7 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import SearchInput from './components/SearchInput';
-import CurrentDay from './components/CurrentDay';
+import CurrentSection from './components/currentForecast/CurrentSection';
 import HourlySection from './components/hourly/HourlySection';
 import ExtenedSection from './components/extendedForecast/ExtendedSection';
 
@@ -19,7 +19,7 @@ function App() {
 		const locationData = {
 			userLocation: location,
 		};
-		fetch('/getData', {
+		fetch('https://glacial-garden-65748.herokuapp.com/getData', {
 			method: 'POST',
 			headers: { 'Content-type': 'application/json' },
 			body: JSON.stringify(locationData),
@@ -29,7 +29,7 @@ function App() {
 				if (data) {
 					setForecastData(data);
 					setIsLoading(false);
-					console.log(forecastData);
+					// console.log(forecastData);
 				} else if (data.error) {
 					console.log(data.error);
 				}
@@ -40,11 +40,13 @@ function App() {
 	}, [location]);
 	return (
 		<div className='app-wrapper'>
+			<h1>Weather Search</h1>
+
 			<SearchInput setUserLocation={setLocation} />
 
 			{!isLoading && (
 				<>
-					<CurrentDay forecast={forecastData} />
+					<CurrentSection forecast={forecastData} />
 					<HourlySection
 						dailyForecast={forecastData.forecast.forecastday[0]}
 					/>
@@ -53,6 +55,12 @@ function App() {
 					/>
 				</>
 			)}
+			<p>
+				Powered by{' '}
+				<a href='https://www.weatherapi.com/' title='Free Weather API'>
+					WeatherAPI.com
+				</a>
+			</p>
 		</div>
 	);
 }

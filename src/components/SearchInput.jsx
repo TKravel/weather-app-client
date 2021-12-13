@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import GpsIcon from './GpsIcon';
 
 const SearchInput = ({ setUserLocation }) => {
 	const [userInput, setUserInput] = useState('');
@@ -48,17 +49,29 @@ const SearchInput = ({ setUserLocation }) => {
 	};
 	return (
 		<>
-			<form onSubmit={handleSubmit}>
-				<input
-					type='text'
-					name='location'
-					placeholder='Zip code or town'
-					value={userInput}
-					onChange={handleChange}
-				/>
-				<button type='submit'>Search</button>
-			</form>
-			<button onClick={handleClick}>GPS</button>
+			<h2>Search using the following:</h2>
+			<ul>
+				<li>City Name</li>
+				<li>US zip code</li>
+				<li>UK postcode</li>
+				<li>Canada postal code</li>
+			</ul>
+			<p>Or use find your location with the location button.</p>
+			<div className='search-container'>
+				<form onSubmit={handleSubmit}>
+					<input
+						type='text'
+						name='location'
+						placeholder='E.g. Philadelphia or 90210'
+						value={userInput}
+						onChange={handleChange}
+					/>
+					<button type='submit'>Search</button>
+				</form>
+				<div onClick={handleClick}>
+					<GpsIcon />
+				</div>
+			</div>
 		</>
 	);
 };

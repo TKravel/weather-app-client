@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { getCurrentHour, getIconPath } from '../../utils/helperFuncs';
+import ToggleButton from '../ToggleButton';
 
 const CurrentCard = ({ forecast }) => {
+	const [expandedDisplay, setExpandedDisplay] = useState(false);
 	const currentHrIdx = getCurrentHour();
 	const icon = '/icons' + getIconPath(forecast.current.condition.icon);
 	return (
@@ -11,18 +13,20 @@ const CurrentCard = ({ forecast }) => {
 					<h1>{forecast.location.name}</h1>
 					<span>{forecast.location.region}</span>
 				</div>
-				<img src={icon} />
+
 				<p>Currently</p>
 				<p>
 					{forecast.current.temp_f}
 					{'\u00B0'}
 				</p>
+				<img src={icon} alt={forecast.current.condition.text} />
+				<p>{forecast.current.condition.text}</p>
+
 				<p>
 					Feels like: {forecast.current.feelslike_f}
 					{'\u00B0'}
 				</p>
 
-				<span>{forecast.current.condition.text}</span>
 				<div>
 					<div>
 						<p>
@@ -42,7 +46,7 @@ const CurrentCard = ({ forecast }) => {
 					</div>
 				</div>
 			</div>
-			<div>
+			<div className={expandedDisplay ? 'expanded' : 'collapsed'}>
 				<p>
 					Todays Low: {forecast.forecast.forecastday[0].day.mintemp_f}
 					{'\u00B0'}
@@ -64,6 +68,10 @@ const CurrentCard = ({ forecast }) => {
 				<p>Sunrise: {forecast.forecast.forecastday[0].astro.sunrise}</p>
 				<p>Sunset: {forecast.forecast.forecastday[0].astro.sunset}</p>
 			</div>
+			<ToggleButton
+				openStatus={expandedDisplay}
+				setStatus={setExpandedDisplay}
+			/>
 		</div>
 	);
 };

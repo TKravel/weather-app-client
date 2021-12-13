@@ -11,9 +11,9 @@ const HourlySection = ({ dailyForecast }) => {
 		return index >= currentHour;
 	});
 	return (
-		<div className='section-wrapper'>
+		<div className='hourly-wrapper'>
 			<h2>Hourly</h2>
-			<div className='card-container'>
+			<div className='hourlyCard-container'>
 				{displayableHrData.map((hour, index) => {
 					return <HourlyCard key={index} hourlyData={hour} />;
 				})}
