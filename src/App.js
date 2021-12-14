@@ -31,7 +31,7 @@ function App() {
 			userLocation: location,
 		};
 		// https://glacial-garden-65748.herokuapp.com
-		fetch('/getData', {
+		fetch('https://glacial-garden-65748.herokuapp.com/getData', {
 			method: 'POST',
 			headers: { 'Content-type': 'application/json' },
 			body: JSON.stringify(locationData),
