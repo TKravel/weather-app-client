@@ -65,6 +65,7 @@ function App() {
 					<CurrentSection forecast={forecastData} />
 					<HourlySection
 						dailyForecast={forecastData.forecast.forecastday[0]}
+						tmrForecast={forecastData.forecast.forecastday[1]}
 					/>
 					<ExtenedSection
 						extendedForecast={forecastData.forecast.forecastday}
