@@ -92,9 +92,21 @@ html {
 
 .search-container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
+	align-items: center;
 	margin-top: 1em;
 	margin-bottom: 2em;
+}
+
+.form-checkbox {
+	width: 100vw;
+}
+
+.error-msg {
+	color: #740f0f;
+	font-size: 1.5em;
+	font-weight: 800;
 }
 
 .current-card {
@@ -169,6 +181,8 @@ html {
 }
 
 .gps-btn {
+	border: none;
+	background-color: inherit;
 	margin-left: 1em;
 }
 

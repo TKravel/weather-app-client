@@ -9,6 +9,17 @@ function App() {
 	const [location, setLocation] = useState('');
 	const [forecastData, setForecastData] = useState();
 	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState('');
+
+	useEffect(() => {
+		const savedLocation = localStorage.getItem('search');
+
+		if (!savedLocation) {
+			return;
+		} else {
+			setLocation(savedLocation);
+		}
+	}, []);
 
 	useEffect(() => {
 		if (location === '' || location === undefined) {
@@ -19,19 +30,20 @@ function App() {
 		const locationData = {
 			userLocation: location,
 		};
-		fetch('https://glacial-garden-65748.herokuapp.com/getData', {
+		// https://glacial-garden-65748.herokuapp.com
+		fetch('/getData', {
 			method: 'POST',
 			headers: { 'Content-type': 'application/json' },
 			body: JSON.stringify(locationData),
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				if (data) {
+				if (data.location) {
 					setForecastData(data);
 					setIsLoading(false);
 					// console.log(forecastData);
-				} else if (data.error) {
-					console.log(data.error);
+				} else if (data.msg) {
+					setError(data.msg);
 				}
 			})
 			.catch((err) => {
@@ -42,7 +54,11 @@ function App() {
 		<div className='app-wrapper'>
 			<h1>Weather Search</h1>
 
-			<SearchInput setUserLocation={setLocation} />
+			<SearchInput
+				setUserLocation={setLocation}
+				errors={error}
+				writeError={setError}
+			/>
 
 			{!isLoading && (
 				<>
