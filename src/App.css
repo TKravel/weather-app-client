@@ -258,6 +258,11 @@ html {
 	padding: 1em 1em 0.5em 1em;
 }
 
+.footer {
+	background-color: #000;
+	color: var(--main-light);
+}
+
 .toggle-btn {
 	margin-top: 0.5em;
 }

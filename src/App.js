@@ -5,6 +5,7 @@ import CurrentSection from './components/currentForecast/CurrentSection';
 import HourlySection from './components/hourly/HourlySection';
 import ExtenedSection from './components/extendedForecast/ExtendedSection';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 
 function App() {
 	const [location, setLocation] = useState('');
@@ -78,6 +79,7 @@ function App() {
 					WeatherAPI.com
 				</a>
 			</p>
+			<Footer />
 		</div>
 	);
 }
