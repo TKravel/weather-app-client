@@ -5,6 +5,7 @@ import ToggleButton from '../ToggleButton';
 const ExtendedCard = ({ cardData }) => {
 	const [expandedDisplay, setExpandedDisplay] = useState(false);
 	const icon = '/icons' + getIconPath(cardData.day.condition.icon);
+
 	let cardDate = cardData.date.slice(5);
 
 	return (
@@ -16,7 +17,9 @@ const ExtendedCard = ({ cardData }) => {
 					{'\u00B0'} Low: {cardData.day.mintemp_f}
 					{'\u00B0'}
 				</p>
-				<img src={icon} alt={cardData.day.condition.text} />
+				<div className='icon-wrapper-day'>
+					<img src={icon} alt={cardData.day.condition.text} />
+				</div>
 				<p>
 					{cardData.day.avgtemp_f}
 					{'\u00B0'}

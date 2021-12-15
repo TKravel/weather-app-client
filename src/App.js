@@ -52,8 +52,6 @@ function App() {
 	}, [location]);
 	return (
 		<div className='app-wrapper'>
-			<h1>Weather Search</h1>
-
 			<SearchInput
 				setUserLocation={setLocation}
 				errors={error}

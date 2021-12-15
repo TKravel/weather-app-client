@@ -3,9 +3,13 @@ import { getCurrentHour, getIconPath } from '../../utils/helperFuncs';
 import ToggleButton from '../ToggleButton';
 
 const CurrentCard = ({ forecast }) => {
+	console.log(forecast);
 	const [expandedDisplay, setExpandedDisplay] = useState(false);
 	const currentHrIdx = getCurrentHour();
 	const icon = '/icons' + getIconPath(forecast.current.condition.icon);
+	const iconBackground = forecast.current.is_day
+		? 'icon-wrapper-day'
+		: 'icon-wrapper-night';
 	return (
 		<div className='current-card'>
 			<div>
@@ -19,7 +23,9 @@ const CurrentCard = ({ forecast }) => {
 					{forecast.current.temp_f}
 					{'\u00B0'}
 				</p>
-				<img src={icon} alt={forecast.current.condition.text} />
+				<div className={iconBackground}>
+					<img src={icon} alt={forecast.current.condition.text} />
+				</div>
 				<p>{forecast.current.condition.text}</p>
 
 				<p>
