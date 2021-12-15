@@ -55,11 +55,36 @@ html {
 	text-align: center;
 }
 
-/* .app-wrapper {
-	background-color: var(--main-dark);
-	min-height: 100vh;
-	text-align: center;
-} */
+.navbar {
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	background-color: #000;
+	color: var(--main-white);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 2em;
+}
+
+.nav-list {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.nav-btn {
+	background-color: var(--main-mid);
+	border-radius: 1em;
+	color: var(--main-white);
+	height: 2em;
+}
+
+.nav-link {
+	color: var(--main-white);
+	text-decoration: none;
+}
 
 .section-wrapper {
 	background-color: var(--main-mid);
@@ -67,7 +92,7 @@ html {
 	border-radius: 0.5em;
 	width: 90%;
 	padding: 1em;
-	margin: 2em auto 2em auto;
+	margin: 3em auto 2em auto;
 }
 
 .hourly-wrapper {
@@ -84,6 +109,7 @@ html {
 		width: 100%;
 		border: 0;
 		border-radius: 0;
+		margin-top: 2em;
 	}
 
 	.hourly-wrapper {

@@ -4,6 +4,7 @@ import SearchInput from './components/SearchInput';
 import CurrentSection from './components/currentForecast/CurrentSection';
 import HourlySection from './components/hourly/HourlySection';
 import ExtenedSection from './components/extendedForecast/ExtendedSection';
+import Navbar from './components/Navbar';
 
 function App() {
 	const [location, setLocation] = useState('');
@@ -52,6 +53,7 @@ function App() {
 	}, [location]);
 	return (
 		<div className='app-wrapper'>
+			<Navbar currentlyLoading={isLoading} />
 			<SearchInput
 				setUserLocation={setLocation}
 				errors={error}
