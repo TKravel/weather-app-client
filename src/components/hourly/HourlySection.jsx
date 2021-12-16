@@ -14,10 +14,10 @@ const HourlySection = ({ dailyForecast, tmrForecast }) => {
 	});
 
 	const tomorrowsHrs = tomorrowsHrData.filter((item, index) => {
-		return index <= currentHour;
+		return index < currentHour;
 	});
 
-	const next24HrData = [...todaysRemainingHrs, ...tomorrowsHrs].slice(0, 24);
+	const next24HrData = [...todaysRemainingHrs, ...tomorrowsHrs];
 
 	console.log(next24HrData);
 	return (
