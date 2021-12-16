@@ -193,6 +193,10 @@ html {
 	margin-left: 0.4em;
 }
 
+.search-container p {
+	width: 100%;
+}
+
 .form-checkbox {
 	width: 100vw;
 }
@@ -332,7 +336,7 @@ html {
 .gps-btn {
 	border: none;
 	background-color: inherit;
-	margin-left: 1em;
+	margin: 1em;
 }
 
 .expanded {

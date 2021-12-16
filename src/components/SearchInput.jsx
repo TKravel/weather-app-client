@@ -83,7 +83,6 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 					<li>UK postcode</li>
 					<li>Canada postal code</li>
 				</ul>
-				<p>Or use find your location with the location button.</p>
 
 				<form onSubmit={handleSubmit} className='search-container'>
 					<input
@@ -97,6 +96,8 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 					<button type='submit' className='search-btn'>
 						Search
 					</button>
+					<p>- or -</p>
+					<p>Use your location</p>
 					<button
 						onClick={handleClick}
 						className='gps-btn'

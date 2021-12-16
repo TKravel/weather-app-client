@@ -11,7 +11,7 @@ import Spinner from './components/icons/Spinner';
 function App() {
 	const [location, setLocation] = useState('');
 	const [forecastData, setForecastData] = useState();
-	const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(false);
 	const [searchSubmitted, setSearchSubmitted] = useState(false);
 	const [error, setError] = useState('');
 
@@ -29,7 +29,9 @@ function App() {
 		if (location === '' || location === undefined) {
 			return;
 		}
+
 		setIsLoading(true);
+		setSearchSubmitted(true);
 		console.log('fetched triggered');
 		const locationData = {
 			userLocation: location,
@@ -54,16 +56,18 @@ function App() {
 				console.log('Fetch error: ' + err);
 			});
 	}, [location]);
+
 	return (
 		<div className='app-wrapper'>
-			<Navbar currentlyLoading={isLoading} />
+			{searchSubmitted && <Navbar />}
+
 			<SearchInput
 				setUserLocation={setLocation}
 				errors={error}
 				writeError={setError}
 			/>
 
-			{isLoading ? (
+			{!searchSubmitted ? null : isLoading ? (
 				<Spinner />
 			) : (
 				<>
