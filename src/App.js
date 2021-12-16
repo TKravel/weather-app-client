@@ -6,6 +6,7 @@ import HourlySection from './components/hourly/HourlySection';
 import ExtenedSection from './components/extendedForecast/ExtendedSection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Spinner from './components/icons/Spinner';
 
 function App() {
 	const [location, setLocation] = useState('');
@@ -61,7 +62,9 @@ function App() {
 				writeError={setError}
 			/>
 
-			{!isLoading && (
+			{isLoading ? (
+				<Spinner />
+			) : (
 				<>
 					<CurrentSection forecast={forecastData} />
 					<HourlySection
@@ -73,7 +76,7 @@ function App() {
 					/>
 				</>
 			)}
-			<p>
+			<p className='weatherApi-credit'>
 				Powered by{' '}
 				<a href='https://www.weatherapi.com/' title='Free Weather API'>
 					WeatherAPI.com

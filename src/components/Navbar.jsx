@@ -5,7 +5,7 @@ const Navbar = ({ currentlyLoading }) => {
 		<div className='navbar'>
 			{!currentlyLoading && (
 				<ul className='nav-list'>
-					<li>
+					<li className='nav-li'>
 						<button className='nav-btn'>
 							<a href='#current' className='nav-link'>
 								Current
@@ -14,7 +14,7 @@ const Navbar = ({ currentlyLoading }) => {
 					</li>
 					<li>
 						<button className='nav-btn'>
-							<a href='#24Hr' className='nav-link'>
+							<a href='#hourly' className='nav-link'>
 								24 hour
 							</a>
 						</button>

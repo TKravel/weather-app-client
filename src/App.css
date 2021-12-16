@@ -53,6 +53,7 @@ html {
 	min-height: 100vh;
 	width: 100vw;
 	text-align: center;
+	scroll-behavior: smooth;
 }
 
 .navbar {
@@ -74,17 +75,31 @@ html {
 	width: 100%;
 }
 
+.nav-li {
+	list-style-type: none;
+}
+
 .nav-btn {
 	background-color: var(--main-mid);
 	border-radius: 1em;
 	color: var(--main-white);
 	height: 2em;
+	margin-top: 0.3em;
 }
 
 .nav-link {
 	color: var(--main-white);
 	text-decoration: none;
 }
+
+:target {
+	scroll-margin-top: 2em;
+}
+
+/* #hourly {
+	padding-top: 4em;
+	margin-top: -4em;
+} */
 
 .section-wrapper {
 	background-color: var(--main-mid);
@@ -169,6 +184,31 @@ html {
 	color: #740f0f;
 	font-size: 1.5em;
 	font-weight: 800;
+}
+
+.spinner-card {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--main-light);
+	border: 2px solid #000;
+	border-radius: 0.5em;
+	height: 12em;
+	width: 12em;
+	padding: 1em;
+	margin: 0.2em auto 0.2em auto;
+}
+
+.spinner-svg {
+	height: 8em;
+	width: 8em;
+	animation: spinner 1.5s linear infinite;
+}
+
+@keyframes spinner {
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .current-card {
@@ -256,6 +296,11 @@ html {
 	max-width: 88%;
 	margin: 0.2em;
 	padding: 1em 1em 0.5em 1em;
+}
+
+.weatherApi-credit {
+	margin-top: 1em;
+	margin-bottom: 2em;
 }
 
 .footer {
