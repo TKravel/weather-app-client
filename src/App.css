@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&family=Roboto&display=swap');
+
 :root {
 	--main-dark: #276678;
 	--main-mid: #1687a7;
@@ -56,6 +58,21 @@ html {
 	scroll-behavior: smooth;
 }
 
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.nav-link,
+.hourly-temp {
+	font-family: 'Merriweather', serif !important;
+}
+
 .navbar {
 	/* display: flex;
 	justify-content: center;
@@ -102,6 +119,8 @@ html {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-size: 1.5em;
+	font-weight: 600;
 	color: var(--main-white);
 	text-decoration: none;
 	padding: 0.5em auto 0.5em auto;
@@ -259,8 +278,34 @@ html {
 	width: 95%;
 	margin: 0.2em auto 0.2em auto;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: center;
+}
+
+.hourly-temp {
+	font-size: 1.5em;
+	font-weight: 600;
+}
+
+@media screen and (min-width: 600px) {
+	.hourly-card h3 {
+		margin-left: 1em;
+	}
+
+	.hourly-card p {
+		justify-content: space-around;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 0 1em 0 1em;
+	}
+
+	.hourly-card-section {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100%;
+	}
 }
 
 .icon-wrapper-day {
@@ -289,7 +334,7 @@ html {
 	}
 	.hourly-card {
 		flex-direction: column;
-		min-width: 40%;
+		min-width: 45%;
 		margin-left: 5px;
 		margin-right: 5px;
 	}

@@ -19,7 +19,7 @@ const CurrentCard = ({ forecast }) => {
 				</div>
 
 				<p>Currently</p>
-				<p>
+				<p className='hourly-temp'>
 					{forecast.current.temp_f}
 					{'\u00B0'}
 				</p>

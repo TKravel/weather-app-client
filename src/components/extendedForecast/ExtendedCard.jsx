@@ -20,7 +20,7 @@ const ExtendedCard = ({ cardData }) => {
 				<div className='icon-wrapper-day'>
 					<img src={icon} alt={cardData.day.condition.text} />
 				</div>
-				<p>
+				<p className='hourly-temp'>
 					{cardData.day.avgtemp_f}
 					{'\u00B0'}
 				</p>
