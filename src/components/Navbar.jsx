@@ -12,14 +12,14 @@ const Navbar = ({ currentlyLoading }) => {
 							</a>
 						</button>
 					</li>
-					<li>
+					<li className='nav-li'>
 						<button className='nav-btn'>
 							<a href='#hourly' className='nav-link'>
 								24 hour
 							</a>
 						</button>
 					</li>
-					<li>
+					<li className='nav-li'>
 						<button className='nav-btn'>
 							<a href='#3day' className='nav-link'>
 								3 day

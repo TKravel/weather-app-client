@@ -21,7 +21,7 @@ const HourlySection = ({ dailyForecast, tmrForecast }) => {
 
 	console.log(next24HrData);
 	return (
-		<div id='hourly' className='hourly-wrapper'>
+		<div id='hourly' className='section-wrapper'>
 			<h2>24 hour forecast</h2>
 			<div className='hourlyCard-container'>
 				{next24HrData.map((hour, index) => {

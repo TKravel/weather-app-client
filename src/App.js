@@ -12,6 +12,7 @@ function App() {
 	const [location, setLocation] = useState('');
 	const [forecastData, setForecastData] = useState();
 	const [isLoading, setIsLoading] = useState(true);
+	const [searchSubmitted, setSearchSubmitted] = useState(false);
 	const [error, setError] = useState('');
 
 	useEffect(() => {
