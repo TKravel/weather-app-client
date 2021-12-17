@@ -3,7 +3,6 @@ import HourlyCard from './HourlyCard';
 import { getCurrentHour } from '../../utils/helperFuncs';
 
 const HourlySection = ({ dailyForecast, tmrForecast }) => {
-	console.log(dailyForecast);
 	const currentHour = getCurrentHour();
 
 	const todaysHrData = dailyForecast.hour;
@@ -19,7 +18,6 @@ const HourlySection = ({ dailyForecast, tmrForecast }) => {
 
 	const next24HrData = [...todaysRemainingHrs, ...tomorrowsHrs];
 
-	console.log(next24HrData);
 	return (
 		<div id='hourly' className='section-wrapper'>
 			<h2>24 hour forecast</h2>

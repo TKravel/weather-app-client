@@ -29,14 +29,12 @@ function App() {
 		if (location === '' || location === undefined) {
 			return;
 		}
-
+		setError('');
 		setIsLoading(true);
 		setSearchSubmitted(true);
-		console.log('fetched triggered');
 		const locationData = {
 			userLocation: location,
 		};
-		// https://glacial-garden-65748.herokuapp.com
 		fetch('https://glacial-garden-65748.herokuapp.com/getData', {
 			method: 'POST',
 			headers: { 'Content-type': 'application/json' },
@@ -47,12 +45,14 @@ function App() {
 				if (data.location) {
 					setForecastData(data);
 					setIsLoading(false);
-					// console.log(forecastData);
 				} else if (data.msg) {
 					setError(data.msg);
 				}
 			})
 			.catch((err) => {
+				setSearchSubmitted(false);
+				setIsLoading(false);
+				setError('500 - Internal server error');
 				console.log('Fetch error: ' + err);
 			});
 	}, [location]);

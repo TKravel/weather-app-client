@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { getCurrentHour, getIconPath } from '../../utils/helperFuncs';
-import ToggleButton from '../ToggleButton';
+import ToggleButton from '../icons/ToggleButton';
 
 const CurrentCard = ({ forecast }) => {
-	console.log(forecast);
 	const [expandedDisplay, setExpandedDisplay] = useState(false);
 	const currentHrIdx = getCurrentHour();
 	const icon = '/icons' + getIconPath(forecast.current.condition.icon);

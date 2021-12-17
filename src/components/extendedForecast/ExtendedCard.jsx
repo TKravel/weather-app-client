@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { getIconPath } from '../../utils/helperFuncs';
-import ToggleButton from '../ToggleButton';
+import ToggleButton from '../icons/ToggleButton';
 
 const ExtendedCard = ({ cardData }) => {
 	const [expandedDisplay, setExpandedDisplay] = useState(false);

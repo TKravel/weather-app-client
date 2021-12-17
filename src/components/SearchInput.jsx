@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import GpsIcon from './GpsIcon';
+import GpsIcon from './icons/GpsIcon';
 
 const SearchInput = ({ setUserLocation, errors, writeError }) => {
 	const [userInput, setUserInput] = useState('');
-	const [postion, setPosition] = useState('');
 
 	const saveUserLocationLocally = (string) => {
 		const checkbox = document.getElementById('saveSearch');
@@ -14,21 +13,11 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		}
 	};
 
-	// useEffect(() => {
-	// 	if (navigator.geolocation) {
-	// 		console.log('has geo');
-	// 	} else {
-	// 		console.log('Doesnt have geo');
-	// 	}
-	// }, []);
-
 	const parseGeo = (longLat) => {
 		const lat = longLat.coords.latitude;
 		const long = longLat.coords.longitude;
 
 		const result = lat + ',' + long;
-		console.log(result);
-		setPosition(result);
 		setUserInput(lat + ', ' + long);
 		setUserLocation(result);
 		saveUserLocationLocally(lat + ', ' + long);
@@ -43,7 +32,6 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		setUserInput((prevValue) => {
 			return e.target.value;
 		});
-		console.log(userInput);
 	};
 
 	const handleSubmit = (e) => {
@@ -51,12 +39,9 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 
 		setUserLocation(userInput);
 		saveUserLocationLocally(userInput);
-		console.log('Form submitted: ' + userInput);
 	};
 
-	const handleClick = (e) => {
-		console.log('clickeed');
-
+	const handleClick = () => {
 		const options = {
 			enableHighAccuracy: true,
 		};
@@ -70,8 +55,8 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		} else {
 			writeError('Geolocation is not supported by this browser.');
 		}
-		console.log(postion);
 	};
+
 	return (
 		<div className='section-wrapper'>
 			<div className='search-card'>
