@@ -27,9 +27,8 @@ Clone the server repository the from the root of the directory run:
 npm install
 ```
 
-Create a .dotenv file in the server root directory with a weatherAPI key
-
-run:
+Create a .dotenv file in the server root directory
+Follow the server README to set up enivorment variables then run:
 
 ```bash
 node index.js
