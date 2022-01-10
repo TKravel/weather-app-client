@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { getCurrentHour, getIconPath } from '../../utils/helperFuncs';
+import ArrowIcon from '../icons/ArrowIcon';
 // import ToggleButton from '../icons/ToggleButton';
 
 const CurrentCard = ({ forecast }) => {
@@ -9,6 +10,16 @@ const CurrentCard = ({ forecast }) => {
 	const iconBackground = forecast.current.is_day
 		? 'icon-wrapper-day'
 		: 'icon-wrapper-night';
+
+	const getWindDirClass = () => {
+		const direction = forecast.current.wind_dir;
+		if (direction === '') {
+			return 'no-wind';
+		} else if (direction) {
+			return direction;
+		}
+	};
+
 	return (
 		<div id='current-card'>
 			<h1>
@@ -26,9 +37,15 @@ const CurrentCard = ({ forecast }) => {
 					<p>{forecast.current.condition.text}</p>
 				</div>
 			</div>
-			<p>
-				Wind {forecast.current.wind_mph} MPH {forecast.current.wind_dir}
-			</p>
+			<div>
+				<p>
+					Wind {forecast.current.wind_mph} MPH{' '}
+					{forecast.current.wind_dir}
+				</p>
+				<div id='wind-arrow' className={getWindDirClass()}>
+					<ArrowIcon />{' '}
+				</div>
+			</div>
 
 			<div id='bottom-current-card'>
 				<div className='additional-details-flexbox'>
