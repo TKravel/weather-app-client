@@ -1,31 +1,10 @@
 import React from 'react';
+import SearchInput from './SearchInput';
 
-const Navbar = () => {
+const Navbar = ({ setUserLocation, errors }) => {
 	return (
-		<div className='navbar'>
-			<ul className='nav-list'>
-				<li className='nav-li'>
-					<button className='nav-btn'>
-						<a href='#current' className='nav-link'>
-							Current
-						</a>
-					</button>
-				</li>
-				<li className='nav-li'>
-					<button className='nav-btn'>
-						<a href='#hourly' className='nav-link'>
-							24 hour
-						</a>
-					</button>
-				</li>
-				<li className='nav-li'>
-					<button className='nav-btn'>
-						<a href='#3day' className='nav-link'>
-							3 day
-						</a>
-					</button>
-				</li>
-			</ul>
+		<div id='navbar'>
+			<SearchInput setUserLocation={setUserLocation} errors={errors} />
 		</div>
 	);
 };

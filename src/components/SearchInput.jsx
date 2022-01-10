@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import SearchIcon from './icons/SearchIcon';
 import GpsIcon from './icons/GpsIcon';
 
 const SearchInput = ({ setUserLocation, errors, writeError }) => {
@@ -58,46 +59,35 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 	};
 
 	return (
-		<div className='section-wrapper'>
-			<div className='search-card'>
-				<h1>Weather Search</h1>
-				<h2>Search using the following:</h2>
-				<ul>
-					<li>City Name</li>
-					<li>US zip code</li>
-					<li>UK postcode</li>
-					<li>Canada postal code</li>
-				</ul>
-
-				<form onSubmit={handleSubmit} className='search-container'>
-					<input
-						className='search-input'
-						type='text'
-						name='location'
-						placeholder='E.g. Philadelphia or 90210'
-						value={userInput}
-						onChange={handleChange}
-					/>
-					<button type='submit' className='search-btn'>
-						Search
-					</button>
-					<p>- or -</p>
-					<p>Use your location</p>
-					<button
-						onClick={handleClick}
-						className='gps-btn'
-						aria-label='Find current location'
-					>
-						<GpsIcon />
-					</button>
-					<div className='form-checkbox'>
-						<input type='checkbox' id='saveSearch' />
-						<label htmlFor='saveSearch'>Remember location</label>
-					</div>
-					<p className='error-msg'>{errors && `Error: ${errors}!`}</p>
-				</form>
+		<form onSubmit={handleSubmit} id='search-container'>
+			<input
+				className='search-input'
+				type='text'
+				name='location'
+				placeholder='E.g. Philadelphia or 90210'
+				value={userInput}
+				onChange={handleChange}
+			/>
+			<button
+				type='submit'
+				className='search-btn'
+				aria-label='Submit search'
+			>
+				<SearchIcon />
+			</button>
+			<button
+				onClick={handleClick}
+				className='gps-btn'
+				aria-label='Find current location'
+			>
+				<GpsIcon />
+			</button>
+			<div className='form-checkbox'>
+				<input type='checkbox' id='saveSearch' />
+				<label htmlFor='saveSearch'>Remember location</label>
 			</div>
-		</div>
+			<p className='error-msg'>{errors && `Error: ${errors}!`}</p>
+		</form>
 	);
 };
 
