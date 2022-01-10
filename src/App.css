@@ -111,7 +111,7 @@ h6,
 @media screen and (max-width: 500px) {
 	#app-wrapper {
 		display: grid;
-		grid-template-rows: 3em calc(70% - 3em) 30% 7fr 1.5em;
+		grid-template-rows: 3em calc(70vh - 5em) 30vh 7fr 1.5em;
 		grid-template-columns: 1fr;
 		grid-template-areas:
 			'nav'
@@ -344,6 +344,9 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 500px) {
 	#hourly-container {
+	}
+	.hourly-card {
+		justify-content: flex-end;
 	}
 }
 
