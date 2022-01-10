@@ -111,7 +111,7 @@ h6,
 @media screen and (max-width: 500px) {
 	#app-wrapper {
 		display: grid;
-		grid-template-rows: 3em calc(70vh - 3em) 30vh 7fr 1.5em;
+		grid-template-rows: 3em calc(70% - 3em) 30% 7fr 1.5em;
 		grid-template-columns: 1fr;
 		grid-template-areas:
 			'nav'
@@ -138,6 +138,8 @@ h6,
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
+	margin-left: 3em;
 }
 
 .search-input {
@@ -176,7 +178,7 @@ input:-webkit-autofill {
 	border: none;
 	background-color: inherit;
 	fill: #d1534d;
-	margin: 1em;
+	margin-left: 1em;
 }
 
 .form-checkbox {
@@ -252,7 +254,7 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 500px) {
 	#current-container {
-		width: 90%;
+		width: 75%;
 	}
 }
 
@@ -331,7 +333,7 @@ input:-webkit-autofill {
 .drop-icon svg {
 	height: 15px;
 	width: 15px;
-	fill: #534dd1;
+	fill: var(--main-main);
 }
 
 .hourly-card h4 {
