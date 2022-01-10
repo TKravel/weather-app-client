@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { getCurrentHour, getIconPath } from '../../utils/helperFuncs';
 import ArrowIcon from '../icons/ArrowIcon';
 // import ToggleButton from '../icons/ToggleButton';
