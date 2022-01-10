@@ -108,6 +108,20 @@ h6,
 	}
 }
 
+@media screen and (max-width: 500px) {
+	#app-wrapper {
+		display: grid;
+		grid-template-rows: 3em calc(70vh - 3em) 30vh 7fr 1.5em;
+		grid-template-columns: 1fr;
+		grid-template-areas:
+			'nav'
+			'current'
+			'hourly'
+			'extended'
+			'footer';
+	}
+}
+
 /* ---------------------------------------------------------------------- */
 /* navbar */
 /* ---------------------------------------------------------------------- */
@@ -136,6 +150,19 @@ h6,
 	height: 2em;
 	padding: 0 3em;
 	position: relative;
+	outline: none;
+}
+
+.search-input:focus {
+	border-bottom: 2px solid #4dd1ab;
+}
+input:focus {
+	-webkit-text-fill-color: var(--main-extraLight);
+}
+input:-webkit-autofill {
+	-webkit-box-shadow: 0 0 0 50px var(--main-extraDark) inset;
+	outline: none;
+	-webkit-text-fill-color: var(--main-extraLight);
 }
 .search-btn {
 	border: none;
@@ -148,7 +175,7 @@ h6,
 .gps-btn {
 	border: none;
 	background-color: inherit;
-	fill: var(--error-red);
+	fill: #d1534d;
 	margin: 1em;
 }
 
@@ -285,10 +312,10 @@ h6,
 }
 
 .hourly-card {
-	background-color: var(--main-light);
+	/* background-color: var(--main-light);
 	border-radius: 0.5em;
 	border-bottom-left-radius: 0;
-	border-bottom-right-radius: 0;
+	border-bottom-right-radius: 0; */
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
@@ -297,20 +324,26 @@ h6,
 }
 
 .hourly-icon {
-	height: 32px;
-	width: 32px;
+	height: 50px;
+	width: 50px;
 }
 
 .drop-icon svg {
 	height: 15px;
 	width: 15px;
-	fill: var(--main-dark);
+	fill: #534dd1;
 }
 
 .hourly-card h4 {
 	font-size: 0.8em;
 	font-family: 'Roboto', sans-serif !important;
 	width: 70px;
+}
+
+@media screen and (max-width: 500px) {
+	#hourly-container {
+		padding-top: 5em;
+	}
 }
 
 /* .hourly-temp {
