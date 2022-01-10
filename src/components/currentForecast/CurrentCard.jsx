@@ -37,13 +37,11 @@ const CurrentCard = ({ forecast }) => {
 					<p>{forecast.current.condition.text}</p>
 				</div>
 			</div>
-			<div>
-				<p>
-					Wind {forecast.current.wind_mph} MPH{' '}
-					{forecast.current.wind_dir}
-				</p>
-				<div id='wind-arrow' className={getWindDirClass()}>
-					<ArrowIcon />{' '}
+			<div id='wind-flexbox'>
+				<p>Wind {forecast.current.wind_mph} MPH </p>
+
+				<div id='wind-arrow-current' className={getWindDirClass()}>
+					<ArrowIcon />
 				</div>
 			</div>
 

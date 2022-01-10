@@ -233,6 +233,12 @@ input:-webkit-autofill {
 	align-items: center;
 }
 
+#wind-flexbox {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
 .additional-details-flexbox {
 	font-size: 1.2em;
 	display: flex;
@@ -259,7 +265,7 @@ input:-webkit-autofill {
 		width: 75%;
 	}
 	#current-card {
-		background-color: inherit;
+		/* background-color: inherit; */
 	}
 }
 
@@ -487,7 +493,13 @@ input:-webkit-autofill {
 .collapsed {
 	display: none;
 }
-
+#wind-arrow-current {
+	margin-left: 0.5em;
+	fill: var(--main-dark);
+}
+#wind-arrow-hourly {
+	fill: var(--main-extraDark);
+}
 .N {
 	transform-origin: 50% 50%;
 	transform: rotate(90deg);

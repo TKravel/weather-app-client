@@ -26,7 +26,7 @@ const HourlyCard = ({ hourlyData }) => {
 			{/* <div className={iconBackground}>
 				
 			</div> */}
-			<div className={getWindDirClass()}>
+			<div id='wind-arrow-hourly' className={getWindDirClass()}>
 				<ArrowIcon />
 			</div>
 			<span className='drop-icon'>
