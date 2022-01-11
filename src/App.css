@@ -202,7 +202,7 @@ input:-webkit-autofill {
 	grid-area: 2/1/4/3;
 }
 
-#hero-text {
+#hero-text-container {
 	color: var(--main-white);
 	display: flex;
 	flex-direction: column;
@@ -212,8 +212,7 @@ input:-webkit-autofill {
 	margin-left: 3em;
 }
 
-#hero-text h1,
-p {
+.hero-text {
 	text-shadow: 3px 3px 6px var(--main-extraDark);
 }
 
@@ -222,7 +221,7 @@ p {
 		max-height: 100%;
 		grid-area: 2/1/5/2;
 	}
-	#hero-text {
+	#hero-text-container {
 		margin-left: 0;
 		padding-bottom: 5em;
 		justify-content: flex-end;
