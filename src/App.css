@@ -131,7 +131,7 @@ h6,
 	color: var(--main-white);
 	text-align: center;
 	width: 100vw;
-	grid-area: 'nav';
+	grid-area: nav;
 }
 
 #search-container {
@@ -192,15 +192,49 @@ input:-webkit-autofill {
 }
 
 /* ----------------------------------------------------------------------- */
-/* display container */
+/* landing page */
 /* ------------------------------------------------------------------------ */
+#landing-page {
+	background: url('./img/toy-looking-out-window.jpg') no-repeat center center
+		fixed;
+	background-size: cover;
 
-/* #display-container {
+	grid-area: 2/1/4/3;
+}
+
+#hero-text {
+	color: var(--main-white);
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-} */
+	text-align: left;
+	height: calc(100vh - 5em);
+	margin-left: 3em;
+}
+
+#hero-text h1,
+p {
+	text-shadow: 3px 3px 6px var(--main-extraDark);
+}
+
+@media screen and (max-width: 850px) {
+	#landing-page {
+		max-height: 100%;
+		grid-area: 2/1/5/2;
+	}
+	#hero-text {
+		margin-left: 0;
+		padding-bottom: 5em;
+		justify-content: flex-end;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#landing-page {
+		grid-area: 2/1/4/2;
+	}
+}
 
 /* ------------------------------------------------------------------------ */
 

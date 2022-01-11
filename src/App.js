@@ -6,6 +6,7 @@ import ExtenedSection from './components/extendedForecast/ExtendedSection';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Spinner from './components/icons/Spinner';
+import LandingPage from './components/LandingPage';
 
 function App() {
 	const [location, setLocation] = useState('');
@@ -60,7 +61,9 @@ function App() {
 		<div id='app-wrapper'>
 			<Navbar setUserLocation={setLocation} errors={error} />
 
-			{!searchSubmitted ? null : isLoading ? (
+			{!searchSubmitted ? (
+				<LandingPage />
+			) : isLoading ? (
 				<Spinner />
 			) : (
 				<>
