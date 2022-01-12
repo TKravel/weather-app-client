@@ -1,12 +1,22 @@
 import React from 'react';
+import Footer from './Footer';
+import Navbar from './Navbar';
 
-const LandingPage = () => {
+const LandingPage = ({ setUserLocation, errors }) => {
 	return (
-		<div id='landing-page'>
-			<div id='hero-text-container'>
-				<h1 className='hero-text'>Forecasts for you</h1>
-				{/* <p>Don't get caught by surprise</p> */}
-				<p className='hero-text'>- CURRENT - HOURLY - THREE-DAY -</p>
+		<div id='landing-wrapper'>
+			<div id='landing-container'>
+				<Navbar setUserLocation={setUserLocation} errors={errors} />
+				<section id='hero-content'>
+					<div id='hero-text-container'>
+						<h1 className='hero-text'>Forecasts for you</h1>
+						{/* <p>Don't get caught by surprise</p> */}
+						<p className='hero-text'>
+							- CURRENT - HOURLY - THREE-DAY -
+						</p>
+					</div>
+				</section>
+				<Footer />
 			</div>
 		</div>
 	);

@@ -1,12 +1,8 @@
 import './App.css';
 import React, { useEffect, useState } from 'react';
-import CurrentSection from './components/currentForecast/CurrentSection';
-import HourlySection from './components/hourly/HourlySection';
-import ExtenedSection from './components/extendedForecast/ExtendedSection';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
 import Spinner from './components/icons/Spinner';
 import LandingPage from './components/LandingPage';
+import { ForecastPage } from './components/forcastPage/ForecastPage';
 
 function App() {
 	const [location, setLocation] = useState('');
@@ -59,14 +55,23 @@ function App() {
 
 	return (
 		<div id='app-wrapper'>
-			<Navbar setUserLocation={setLocation} errors={error} />
+			{/* <Navbar setUserLocation={setLocation} errors={error} /> */}
 
 			{!searchSubmitted ? (
-				<LandingPage />
+				<LandingPage setUserLocation={setLocation} errors={error} />
 			) : isLoading ? (
 				<Spinner />
 			) : (
-				<>
+				<ForecastPage
+					setUserLocation={setLocation}
+					errors={error}
+					forecast={forecastData}
+					dailyForecast={forecastData.forecast.forecastday[0]}
+					tmrForecast={forecastData.forecast.forecastday[1]}
+					extendedForecast={forecastData.forecast.forecastday}
+				/>
+			)}
+			{/* <>
 					<CurrentSection forecast={forecastData} />
 					<HourlySection
 						dailyForecast={forecastData.forecast.forecastday[0]}
@@ -75,10 +80,9 @@ function App() {
 					<ExtenedSection
 						extendedForecast={forecastData.forecast.forecastday}
 					/>
-				</>
-			)}
+				</> */}
 
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }
