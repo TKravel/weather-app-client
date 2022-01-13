@@ -131,7 +131,7 @@ h6,
 #navbar {
 	background-color: var(--main-extraDark);
 	color: var(--main-white);
-	text-align: center;
+	height: 3em;
 	width: 100vw;
 	grid-area: nav;
 }
@@ -153,7 +153,7 @@ h6,
 	border-right: none;
 	font-size: 0.9em;
 	height: 2em;
-	padding: 0 3em;
+	padding: 0 3em 0 1em;
 	position: relative;
 	outline: none;
 }

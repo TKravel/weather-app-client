@@ -1,9 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import SearchIcon from './icons/SearchIcon';
 import GpsIcon from './icons/GpsIcon';
 
+// Autocomplete code from Gapur Kassym found on medium
+// Dynamicly injects script tag, connects to API sets feilds, handles autocomplete
+
+let autoComplete;
+
+const loadScript = (url, callback) => {
+	let scriptLoaded = document.querySelector(`script[src="${url}"]`);
+	if (scriptLoaded) {
+		return;
+	}
+	let script = document.createElement('script');
+	script.type = 'text/javascript';
+
+	if (script.readyState) {
+		script.onreadystatechange = function () {
+			if (
+				script.readyState === 'loaded' ||
+				script.readyState === 'complete'
+			) {
+				script.onreadystatechange = null;
+				callback();
+			}
+		};
+	} else {
+		script.onload = () => callback();
+	}
+
+	script.src = url;
+	document.getElementsByTagName('head')[0].appendChild(script);
+};
+
+function handleScriptLoad(updateQuery, autoCompleteRef) {
+	autoComplete = new window.google.maps.places.Autocomplete(
+		autoCompleteRef.current,
+		{ types: ['(cities)'] }
+	);
+	autoComplete.setFields(['formatted_address']);
+	autoComplete.addListener('place_changed', () =>
+		handlePlaceSelect(updateQuery)
+	);
+}
+
+async function handlePlaceSelect(updateQuery) {
+	const addressObject = autoComplete.getPlace();
+	const query = addressObject.formatted_address;
+	updateQuery(query);
+	console.log(addressObject);
+}
+
 const SearchInput = ({ setUserLocation, errors, writeError }) => {
-	const [userInput, setUserInput] = useState('');
+	const [query, setQuery] = useState('');
+	const autoCompleteRef = useRef(null);
 
 	const saveUserLocationLocally = (string) => {
 		const checkbox = document.getElementById('saveSearch');
@@ -19,7 +69,7 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		const long = longLat.coords.longitude;
 
 		const result = lat + ',' + long;
-		setUserInput(lat + ', ' + long);
+		setQuery(lat + ', ' + long);
 		setUserLocation(result);
 		saveUserLocationLocally(lat + ', ' + long);
 		return result;
@@ -29,17 +79,11 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		console.log('error');
 	};
 
-	const handleChange = (e) => {
-		setUserInput((prevValue) => {
-			return e.target.value;
-		});
-	};
-
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		setUserLocation(userInput);
-		saveUserLocationLocally(userInput);
+		setUserLocation(query);
+		saveUserLocationLocally(query);
 	};
 
 	const handleClick = () => {
@@ -58,15 +102,26 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		}
 	};
 
+	useEffect(() => {
+		loadScript(
+			`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_AUTOCOMPLETE}&libraries=places`,
+			() => handleScriptLoad(setQuery, autoCompleteRef)
+		);
+	}, []);
+
 	return (
 		<form onSubmit={handleSubmit} id='search-container'>
 			<input
 				className='search-input'
 				type='text'
 				name='location'
-				placeholder='E.g. Philadelphia or 90210'
-				value={userInput}
-				onChange={handleChange}
+				// placeholder='Enter location'
+				// value={userInput}
+				// onChange={handleChange}
+				ref={autoCompleteRef}
+				onChange={(event) => setQuery(event.target.value)}
+				placeholder='Enter a City'
+				value={query}
 			/>
 			<button
 				type='submit'
