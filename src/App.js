@@ -11,15 +11,15 @@ function App() {
 	const [searchSubmitted, setSearchSubmitted] = useState(false);
 	const [error, setError] = useState('');
 
-	useEffect(() => {
-		const savedLocation = localStorage.getItem('search');
+	// useEffect(() => {
+	// 	const savedLocation = localStorage.getItem('search');
 
-		if (!savedLocation) {
-			return;
-		} else {
-			setLocation(savedLocation);
-		}
-	}, []);
+	// 	if (!savedLocation) {
+	// 		return;
+	// 	} else {
+	// 		setLocation(savedLocation);
+	// 	}
+	// }, []);
 
 	useEffect(() => {
 		if (location === '' || location === undefined) {
@@ -55,8 +55,14 @@ function App() {
 
 	useEffect(() => {
 		const calcViewportUnits = () => {
-			const vh = window.innerHeight * 0.01;
-			document.documentElement.style.setProperty('--vh', vh + 'px');
+			let vh = window.innerHeight;
+			if (vh < 600) {
+				vh = 600;
+				document.documentElement.style.setProperty('--vh', vh + 'px');
+			} else {
+				vh = vh * 0.01;
+				document.documentElement.style.setProperty('--vh', vh + 'px');
+			}
 		};
 		calcViewportUnits();
 		window.addEventListener('resize', calcViewportUnits);

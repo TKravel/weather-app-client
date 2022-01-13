@@ -55,14 +55,14 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 	const [query, setQuery] = useState('');
 	const autoCompleteRef = useRef(null);
 
-	const saveUserLocationLocally = (string) => {
-		const checkbox = document.getElementById('saveSearch');
-		if (checkbox.checked) {
-			localStorage.setItem('search', string);
-		} else {
-			return;
-		}
-	};
+	// const saveUserLocationLocally = (string) => {
+	// 	const checkbox = document.getElementById('saveSearch');
+	// 	if (checkbox.checked) {
+	// 		localStorage.setItem('search', string);
+	// 	} else {
+	// 		return;
+	// 	}
+	// };
 
 	const parseGeo = (longLat) => {
 		const lat = longLat.coords.latitude;
@@ -71,7 +71,8 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		const result = lat + ',' + long;
 		setQuery(lat + ', ' + long);
 		setQuery(result);
-		saveUserLocationLocally(lat + ', ' + long);
+		setUserLocation(result);
+		// saveUserLocationLocally(lat + ', ' + long);
 		return result;
 	};
 
@@ -83,10 +84,10 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		e.preventDefault();
 
 		setUserLocation(query);
-		saveUserLocationLocally(query);
+		// saveUserLocationLocally(query);
 	};
 
-	const handleClick = () => {
+	const handleClick = (e) => {
 		const options = {
 			enableHighAccuracy: true,
 		};
@@ -100,6 +101,7 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 		} else {
 			writeError('Geolocation is not supported by this browser.');
 		}
+		e.preventDefault();
 	};
 
 	useEffect(() => {
@@ -119,9 +121,6 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 				className='search-input'
 				type='text'
 				name='location'
-				// placeholder='Enter location'
-				// value={userInput}
-				// onChange={handleChange}
 				ref={autoCompleteRef}
 				onChange={(event) => setQuery(event.target.value)}
 				placeholder='Enter a City'
@@ -141,10 +140,6 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 			>
 				<GpsIcon />
 			</button>
-			<div className='form-checkbox'>
-				<input type='checkbox' id='saveSearch' />
-				<label htmlFor='saveSearch'>Remember location</label>
-			</div>
 			<p className='error-msg'>{errors && `Error: ${errors}!`}</p>
 		</form>
 	);
