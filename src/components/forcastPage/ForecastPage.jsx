@@ -1,8 +1,8 @@
 import React from 'react';
-import CurrentSection from '../currentForecast/CurrentSection';
-import ExtenedSection from '../extendedForecast/ExtendedSection';
+import CurrentSection from './currentForecast/CurrentSection';
+import ExtenedSection from './extendedForecast/ExtendedSection';
 import Footer from '../Footer';
-import HourlySection from '../hourly/HourlySection';
+import HourlySection from './hourly/HourlySection';
 import Navbar from '../Navbar';
 
 export const ForecastPage = ({

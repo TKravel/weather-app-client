@@ -1,5 +1,5 @@
 import React from 'react';
-import { getIconPath } from '../../utils/helperFuncs';
+import { getIconPath } from '../../../utils/helperFuncs';
 // import ToggleButton from '../icons/ToggleButton';
 
 const ExtendedCard = ({ cardData }) => {

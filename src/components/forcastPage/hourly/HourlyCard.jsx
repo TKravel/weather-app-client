@@ -1,7 +1,7 @@
 import React from 'react';
-import RainDrop from '../icons/RainDrop';
-import { convertTo12Hr, getIconPath } from '../../utils/helperFuncs';
-import ArrowIcon from '../icons/ArrowIcon';
+import RainDrop from '../../icons/RainDrop';
+import { convertTo12Hr, getIconPath } from '../../../utils/helperFuncs';
+import ArrowIcon from '../../icons/ArrowIcon';
 
 const HourlyCard = ({ hourlyData }) => {
 	const icon = '/icons' + getIconPath(hourlyData.condition.icon);

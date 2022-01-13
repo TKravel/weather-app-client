@@ -1,6 +1,6 @@
 import React from 'react';
 import HourlyCard from './HourlyCard';
-import { getCurrentHour } from '../../utils/helperFuncs';
+import { getCurrentHour } from '../../../utils/helperFuncs';
 
 const HourlySection = ({ dailyForecast, tmrForecast }) => {
 	const currentHour = getCurrentHour();

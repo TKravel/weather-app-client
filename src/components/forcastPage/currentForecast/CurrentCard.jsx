@@ -1,15 +1,12 @@
 import React from 'react';
-import { getCurrentHour, getIconPath } from '../../utils/helperFuncs';
-import ArrowIcon from '../icons/ArrowIcon';
+import { getCurrentHour, getIconPath } from '../../../utils/helperFuncs';
+import ArrowIcon from '../../icons/ArrowIcon';
 // import ToggleButton from '../icons/ToggleButton';
 
 const CurrentCard = ({ forecast }) => {
 	// const [expandedDisplay, setExpandedDisplay] = useState(false);
 	const currentHrIdx = getCurrentHour();
 	const icon = '/icons' + getIconPath(forecast.current.condition.icon);
-	const iconBackground = forecast.current.is_day
-		? 'icon-wrapper-day'
-		: 'icon-wrapper-night';
 
 	const getWindDirClass = () => {
 		const direction = forecast.current.wind_dir;
@@ -26,8 +23,12 @@ const CurrentCard = ({ forecast }) => {
 				{forecast.location.name}, {forecast.location.region}
 			</h1>
 			<div id='icon-temp-flexbox'>
-				<div className={iconBackground}>
-					<img src={icon} alt={forecast.current.condition.text} />
+				<div id='current-icon-wrapper'>
+					<img
+						id='current-icon'
+						src={icon}
+						alt={forecast.current.condition.text}
+					/>
 				</div>
 				<div>
 					<p className='hourly-temp'>
