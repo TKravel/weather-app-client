@@ -75,8 +75,6 @@ function App() {
 
 	return (
 		<div id='app-wrapper'>
-			{/* <Navbar setUserLocation={setLocation} errors={error} /> */}
-
 			{!searchSubmitted ? (
 				<LandingPage setUserLocation={setLocation} errors={error} />
 			) : isLoading ? (

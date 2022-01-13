@@ -82,6 +82,15 @@ h6,
 	font-family: 'Merriweather', serif !important;
 }
 
+#app-wrapper {
+	background-color: #9acfd3;
+	display: flex;
+	justify-content: center;
+
+	margin: auto;
+	height: 100vh;
+}
+
 #forecast-wrapper {
 	background: url('./img/forecast-background.jpg') no-repeat center center;
 	background-size: cover;
