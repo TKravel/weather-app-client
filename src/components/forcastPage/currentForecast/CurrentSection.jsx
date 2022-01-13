@@ -4,7 +4,6 @@ import CurrentCard from './CurrentCard';
 const CurrentSection = ({ forecast }) => {
 	return (
 		<div id='current-container'>
-			<h2>Current forecast</h2>
 			<CurrentCard forecast={forecast} />
 			<p className='weatherApi-credit'>
 				Powered by{' '}

@@ -22,6 +22,7 @@ const CurrentCard = ({ forecast }) => {
 			<h1>
 				{forecast.location.name}, {forecast.location.region}
 			</h1>
+
 			<div id='icon-temp-flexbox'>
 				<div id='current-icon-wrapper'>
 					<img
@@ -31,7 +32,7 @@ const CurrentCard = ({ forecast }) => {
 					/>
 				</div>
 				<div>
-					<p className='hourly-temp'>
+					<p id='hourly-temp'>
 						{parseInt(forecast.current.temp_f)}
 						{'\u00B0'}
 					</p>
@@ -48,11 +49,11 @@ const CurrentCard = ({ forecast }) => {
 
 			<div id='bottom-current-card'>
 				<div className='additional-details-flexbox'>
-					<span>
+					<p>
 						Feels like: {parseInt(forecast.current.feelslike_f)}
 						{'\u00B0'}
-					</span>
-					<span>Humidity: {forecast.current.humidity}%</span>
+					</p>
+					<p>Humidity: {forecast.current.humidity}%</p>
 				</div>
 				<div className='additional-details-flexbox'>
 					<p>

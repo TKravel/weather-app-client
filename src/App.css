@@ -115,10 +115,9 @@ h6,
 	#forecast-wrapper {
 		background: url('./img/forecast-background.jpg') no-repeat center center
 			fixed;
-		background-size: cover;
+		background-size: auto calc(var(--vh) * 100);
 		display: grid;
-
-		grid-template-rows: 3em calc(var(--vh) * 90) 30vh 7fr 1.5em;
+		grid-template-rows: 3em calc(var(--vh) * 90) 30vh 60vh 1.5em;
 		grid-template-columns: 1fr;
 		grid-template-areas:
 			'nav'
@@ -242,8 +241,6 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 850px) {
-	#landing-wrapper {
-	}
 	#hero-text-container {
 		margin-left: 0;
 		justify-content: flex-end;
@@ -316,9 +313,6 @@ input:-webkit-autofill {
 	justify-content: space-between;
 }
 
-.weatherApi-credit {
-}
-
 @media screen and (max-width: 850px) {
 	#current-container {
 		width: 60%;
@@ -334,6 +328,10 @@ input:-webkit-autofill {
 	#current-card {
 		background-color: transparent;
 		height: calc(var(--vh) * 80);
+	}
+
+	#current-card p {
+		font-size: 1.1em;
 	}
 	#current-icon-wrapper {
 		height: 30vw;
@@ -351,11 +349,11 @@ input:-webkit-autofill {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	justify-content: space-around;
 	align-content: center;
 	height: 60vh;
-	margin: auto;
+	margin: auto auto;
 	width: 80%;
-	/* order: 2; */
 	grid-area: extended;
 }
 
@@ -386,7 +384,6 @@ input:-webkit-autofill {
 
 @media screen and (max-width: 600px) {
 	#extended-container {
-		height: auto;
 		width: 100%;
 	}
 }
@@ -395,7 +392,6 @@ input:-webkit-autofill {
 #hourly-container {
 	height: 100%;
 	width: 100%;
-	/* order: 3; */
 	overflow-x: scroll;
 	overflow-y: hidden;
 	grid-area: hourly;
@@ -412,6 +408,7 @@ input:-webkit-autofill {
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	padding-bottom: 0.25em;
 	width: 60px;
 }
 
@@ -474,28 +471,17 @@ input:-webkit-autofill {
 .footer {
 	height: 1.5em;
 	width: 100vw;
-	background-color: var(--main-extraDark);
-	color: var(--main-light);
+	background-color: #1b444a;
+	color: #67a7a9;
 	grid-area: footer;
 }
 
-.toggle-btn {
-	margin-top: 0.5em;
-}
-
-.expanded {
-	display: block;
-}
-
-.collapsed {
-	display: none;
-}
 #wind-arrow-current {
 	margin-left: 0.5em;
-	fill: var(--main-dark);
+	fill: #1b444a;
 }
 #wind-arrow-hourly {
-	fill: var(--main-extraDark);
+	fill: #1b444a;
 }
 .N {
 	transform-origin: 50% 50%;
