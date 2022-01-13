@@ -53,6 +53,15 @@ function App() {
 			});
 	}, [location]);
 
+	useEffect(() => {
+		const calcViewportUnits = () => {
+			const vh = window.innerHeight * 0.01;
+			document.documentElement.style.setProperty('--vh', vh + 'px');
+		};
+		calcViewportUnits();
+		window.addEventListener('resize', calcViewportUnits);
+	}, []);
+
 	return (
 		<div id='app-wrapper'>
 			{/* <Navbar setUserLocation={setLocation} errors={error} /> */}

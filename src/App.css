@@ -8,6 +8,7 @@
 	--main-extraLight: #a6cfe8;
 	--main-white: #f2f8fc;
 	--error-red: #cc0000;
+	--vh: 100vh;
 }
 /* ------------------------------------------------------------------ */
 /* Reset */
@@ -211,6 +212,7 @@ input:-webkit-autofill {
 	flex-direction: column;
 	justify-content: space-between;
 	height: 100vh;
+	height: calc(var(--vh) * 100);
 	width: 100vw;
 }
 
