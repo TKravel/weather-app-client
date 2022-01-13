@@ -51,7 +51,7 @@ async function handlePlaceSelect(updateQuery) {
 	console.log(addressObject);
 }
 
-const SearchInput = ({ setUserLocation, errors, writeError }) => {
+const SearchInput = ({ setUserLocation, errors }) => {
 	const [query, setQuery] = useState('');
 	const autoCompleteRef = useRef(null);
 
@@ -98,8 +98,6 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 				geoError,
 				options
 			);
-		} else {
-			writeError('Geolocation is not supported by this browser.');
 		}
 		e.preventDefault();
 	};
@@ -140,7 +138,9 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 			>
 				<GpsIcon />
 			</button>
-			<p className='error-msg'>{errors && `Error: ${errors}!`}</p>
+			<p className='error-msg'>
+				<strong>{errors && `Error: ${errors}!`}</strong>
+			</p>
 		</form>
 	);
 };

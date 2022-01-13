@@ -38,11 +38,16 @@ function App() {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				if (data.location) {
+				if (data.msg) {
+					setSearchSubmitted(false);
+					setIsLoading(false);
+					setError(data.msg);
+				} else if (data.location) {
 					setForecastData(data);
 					setIsLoading(false);
-				} else if (data.msg) {
-					setError(data.msg);
+					// } else if (data.msg) {
+					// 	setError(data.msg);
+					// }
 				}
 			})
 			.catch((err) => {

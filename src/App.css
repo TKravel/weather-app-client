@@ -7,7 +7,7 @@
 	--main-light: #73b3db;
 	--main-extraLight: #a6cfe8;
 	--main-white: #f2f8fc;
-	--error-red: #cc0000;
+	--error-red: #ff0404;
 	--vh: 100vh;
 }
 /* ------------------------------------------------------------------ */
@@ -61,7 +61,7 @@ img {
 html {
 	background-color: var(--main-dark);
 	line-height: 1.5;
-	min-height: 100vh;
+	height: 100vh;
 	height: calc(var(--vh) * 100);
 	max-width: 100vw;
 	text-align: center;
@@ -131,13 +131,14 @@ h6,
 #navbar {
 	background-color: var(--main-extraDark);
 	color: var(--main-white);
-	height: 3em;
+	min-height: 3em;
 	width: 100vw;
 	grid-area: nav;
 }
 
 #search-container {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
 	height: 100%;
@@ -193,9 +194,10 @@ input:-webkit-autofill {
 }
 
 .error-msg {
-	color: #740f0f;
-	font-size: 1.5em;
-	font-weight: 800;
+	color: var(--error-red);
+	font-size: 1.3em;
+	padding-right: 3rem;
+	width: 100vw;
 }
 
 /* ----------------------------------------------------------------------- */
