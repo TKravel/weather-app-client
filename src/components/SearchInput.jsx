@@ -7,31 +7,31 @@ import GpsIcon from './icons/GpsIcon';
 
 let autoComplete;
 
-const loadScript = (url, callback) => {
-	let scriptLoaded = document.querySelector(`script[src="${url}"]`);
-	if (scriptLoaded) {
-		return;
-	}
-	let script = document.createElement('script');
-	script.type = 'text/javascript';
+// const loadScript = (url, callback) => {
+// 	let scriptLoaded = document.querySelector(`script[src="${url}"]`);
+// 	if (scriptLoaded) {
+// 		return;
+// 	}
+// 	let script = document.createElement('script');
+// 	script.type = 'text/javascript';
 
-	if (script.readyState) {
-		script.onreadystatechange = function () {
-			if (
-				script.readyState === 'loaded' ||
-				script.readyState === 'complete'
-			) {
-				script.onreadystatechange = null;
-				callback();
-			}
-		};
-	} else {
-		script.onload = () => callback();
-	}
+// 	if (script.readyState) {
+// 		script.onreadystatechange = function () {
+// 			if (
+// 				script.readyState === 'loaded' ||
+// 				script.readyState === 'complete'
+// 			) {
+// 				script.onreadystatechange = null;
+// 				callback();
+// 			}
+// 		};
+// 	} else {
+// 		script.onload = () => callback();
+// 	}
 
-	script.src = url;
-	document.getElementsByTagName('head')[0].appendChild(script);
-};
+// 	script.src = url;
+// 	document.getElementsByTagName('head')[0].appendChild(script);
+// };
 
 function handleScriptLoad(updateQuery, autoCompleteRef) {
 	autoComplete = new window.google.maps.places.Autocomplete(
@@ -70,7 +70,7 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 
 		const result = lat + ',' + long;
 		setQuery(lat + ', ' + long);
-		setUserLocation(result);
+		setQuery(result);
 		saveUserLocationLocally(lat + ', ' + long);
 		return result;
 	};
@@ -103,11 +103,15 @@ const SearchInput = ({ setUserLocation, errors, writeError }) => {
 	};
 
 	useEffect(() => {
-		loadScript(
-			`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_AUTOCOMPLETE}&libraries=places`,
-			() => handleScriptLoad(setQuery, autoCompleteRef)
-		);
+		handleScriptLoad(setQuery, autoCompleteRef);
 	}, []);
+
+	// useEffect(() => {
+	// 	loadScript(
+	// 		`https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_AUTOCOMPLETE}&libraries=places`,
+	// 		() => handleScriptLoad(setQuery, autoCompleteRef)
+	// 	);
+	// }, []);
 
 	return (
 		<form onSubmit={handleSubmit} id='search-container'>
