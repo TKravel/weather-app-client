@@ -36,7 +36,7 @@ let autoComplete;
 function handleScriptLoad(updateQuery, autoCompleteRef) {
 	autoComplete = new window.google.maps.places.Autocomplete(
 		autoCompleteRef.current,
-		{ types: ['(cities)'] }
+		{ types: ['(regions)'] }
 	);
 	autoComplete.setFields(['formatted_address']);
 	autoComplete.addListener('place_changed', () =>
