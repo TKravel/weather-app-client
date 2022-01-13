@@ -84,11 +84,8 @@ h6,
 
 #app-wrapper {
 	background-color: #9acfd3;
-	display: flex;
-	justify-content: center;
 
-	margin: auto;
-	height: 100vh;
+	height: calc(var(--vh) * 100);
 }
 
 #forecast-wrapper {
