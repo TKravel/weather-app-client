@@ -11,16 +11,6 @@ function App() {
 	const [searchSubmitted, setSearchSubmitted] = useState(false);
 	const [error, setError] = useState('');
 
-	// useEffect(() => {
-	// 	const savedLocation = localStorage.getItem('search');
-
-	// 	if (!savedLocation) {
-	// 		return;
-	// 	} else {
-	// 		setLocation(savedLocation);
-	// 	}
-	// }, []);
-
 	useEffect(() => {
 		if (location === '' || location === undefined) {
 			return;
@@ -45,9 +35,6 @@ function App() {
 				} else if (data.location) {
 					setForecastData(data);
 					setIsLoading(false);
-					// } else if (data.msg) {
-					// 	setError(data.msg);
-					// }
 				}
 			})
 			.catch((err) => {
@@ -89,18 +76,6 @@ function App() {
 					extendedForecast={forecastData.forecast.forecastday}
 				/>
 			)}
-			{/* <>
-					<CurrentSection forecast={forecastData} />
-					<HourlySection
-						dailyForecast={forecastData.forecast.forecastday[0]}
-						tmrForecast={forecastData.forecast.forecastday[1]}
-					/>
-					<ExtenedSection
-						extendedForecast={forecastData.forecast.forecastday}
-					/>
-				</> */}
-
-			{/* <Footer /> */}
 		</div>
 	);
 }

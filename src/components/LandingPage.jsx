@@ -10,7 +10,6 @@ const LandingPage = ({ setUserLocation, errors }) => {
 				<section id='hero-content'>
 					<div id='hero-text-container'>
 						<h1 className='hero-text'>Forecasts for you</h1>
-						{/* <p>Don't get caught by surprise</p> */}
 						<p className='hero-text'>
 							- CURRENT - HOURLY - THREE-DAY -
 						</p>

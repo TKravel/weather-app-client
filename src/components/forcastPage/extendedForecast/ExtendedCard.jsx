@@ -1,9 +1,7 @@
 import React from 'react';
 import { getIconPath } from '../../../utils/helperFuncs';
-// import ToggleButton from '../icons/ToggleButton';
 
 const ExtendedCard = ({ cardData }) => {
-	// const [expandedDisplay, setExpandedDisplay] = useState(false);
 	const icon = '/icons' + getIconPath(cardData.day.condition.icon);
 
 	let cardDate = cardData.date.slice(5);
@@ -34,20 +32,6 @@ const ExtendedCard = ({ cardData }) => {
 				</div>
 				<p>Rain chance: {cardData.day.daily_chance_of_rain}%</p>
 			</div>
-			{/* <div className={expandedDisplay ? 'expanded' : 'collapsed'}>
-				<p>Max wind: {cardData.day.maxwind_mph} MPH</p>
-				<p>Humidity: {cardData.day.avghumidity}%</p>
-				<p>Precip amount: {cardData.day.totalprecip_in}"</p>
-				<p>Visibility: {cardData.day.avgvis_miles} miles</p>
-				<p>Sunrise: {cardData.astro.sunrise}</p>
-				<p>Sunset: {cardData.astro.sunset}</p>
-				<p>Moonrise: {cardData.astro.moonrise}</p>
-				<p>Moonset: {cardData.astro.moonset}</p>
-			</div> */}
-			{/* <ToggleButton
-				openStatus={expandedDisplay}
-				setStatus={setExpandedDisplay}
-			/> */}
 		</div>
 	);
 };

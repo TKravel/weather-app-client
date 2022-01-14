@@ -139,7 +139,8 @@ h6,
 /* ---------------------------------------------------------------------- */
 
 #navbar {
-	background-color: var(--main-extraDark);
+	background-color: #1b444a;
+	box-shadow: 0px 6px 6px 5px rgba(8, 23, 32, 0.05);
 	color: var(--main-white);
 	min-height: 3em;
 	width: 100vw;
@@ -157,7 +158,7 @@ h6,
 
 .search-input {
 	color: var(--main-white);
-	background-color: var(--main-extraDark);
+	background-color: #1b444a;
 	border: 1px solid var(--main-main);
 	border-left: none;
 	border-top: none;
@@ -229,9 +230,6 @@ input:-webkit-autofill {
 	width: 100vw;
 }
 
-#hero-content {
-}
-
 #hero-text-container {
 	color: var(--main-white);
 	display: flex;
@@ -283,6 +281,9 @@ input:-webkit-autofill {
 #current-card {
 	background-color: #9acfd3a6;
 	border-radius: 0.5em;
+	border-bottom-left-radius: 1em;
+	border-bottom-right-radius: 1em;
+	box-shadow: 6px 6px 6px 5px rgba(8, 23, 32, 0.1);
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -369,6 +370,7 @@ input:-webkit-autofill {
 	border-bottom-right-radius: 1em;
 	border-top-left-radius: 0.3em;
 	border-top-right-radius: 0.3em;
+	box-shadow: 6px 6px 6px 5px rgba(8, 23, 32, 0.1);
 	margin: auto auto;
 	overflow: hidden;
 	width: 100%;
@@ -410,12 +412,13 @@ input:-webkit-autofill {
 #hourly-container {
 	height: 100%;
 	width: 100%;
-	overflow-x: scroll;
+	overflow-x: hidden;
 	overflow-y: hidden;
 	grid-area: hourly;
 }
 
 #hourlyCard-container {
+	box-shadow: 6px 6px 6px 5px rgba(8, 23, 32, 0.1);
 	display: flex;
 	height: 100%;
 }
@@ -447,8 +450,6 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 500px) {
-	#hourly-container {
-	}
 	.hourly-card {
 		justify-content: flex-end;
 	}
