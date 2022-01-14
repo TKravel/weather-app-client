@@ -67,7 +67,7 @@ const SearchInput = ({ setUserLocation, errors }) => {
 	useEffect(() => {
 		if (!scriptLoaded) {
 			const googleScript = document.createElement('script');
-			googleScript.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyAqErWgzkbZh-97TFvmAhEOdygnmU1n1HQ&libraries=places`;
+			googleScript.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.REACT_APP_AUTO_KEY}&libraries=places`;
 			window.document.body.appendChild(googleScript);
 
 			googleScript.addEventListener('load', setScriptLoaded(true));
