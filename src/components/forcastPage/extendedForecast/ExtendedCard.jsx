@@ -7,13 +7,17 @@ const ExtendedCard = ({ cardData }) => {
 	let cardDate = cardData.date.slice(5);
 
 	return (
-		<div className='extended-card'>
+		<div className='extended-card' data-testid='extended-test-card'>
 			<h3>
 				{cardDate} {cardData.day.condition.text}
 			</h3>
 
 			<div className='extended-info'>
-				<img src={icon} alt={cardData.day.condition.text} />
+				<img
+					src={icon}
+					alt={cardData.day.condition.text}
+					data-testid='extended-card'
+				/>
 
 				<p className='hourly-temp'>
 					{parseInt(cardData.day.avgtemp_f)}
