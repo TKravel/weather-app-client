@@ -16,7 +16,7 @@ const CurrentCard = ({ forecast }) => {
 	};
 
 	return (
-		<div id='current-card'>
+		<div id='current-card' data-testid='current-card'>
 			<h1>
 				{forecast.location.name}, {forecast.location.region}
 			</h1>
@@ -25,6 +25,7 @@ const CurrentCard = ({ forecast }) => {
 				<div id='current-icon-wrapper'>
 					<img
 						id='current-icon'
+						data-testid='current-icon'
 						src={icon}
 						alt={forecast.current.condition.text}
 					/>
@@ -40,7 +41,11 @@ const CurrentCard = ({ forecast }) => {
 			<div id='wind-flexbox'>
 				<p>Wind {forecast.current.wind_mph} MPH </p>
 
-				<div id='wind-arrow-current' className={getWindDirClass()}>
+				<div
+					id='wind-arrow-current'
+					data-testid='wind-arrow-current'
+					className={getWindDirClass()}
+				>
 					<ArrowIcon />
 				</div>
 			</div>
