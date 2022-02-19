@@ -14,12 +14,16 @@ const HourlyCard = ({ hourlyData }) => {
 		}
 	};
 	return (
-		<div className='hourly-card'>
+		<div className='hourly-card' data-testid='hr-card'>
 			<p className='hourly-temp'>
 				{parseInt(hourlyData.temp_f)}
 				{'\u00B0'}
 			</p>
-			<div id='wind-arrow-hourly' className={getWindDirClass()}>
+			<div
+				id='wind-arrow-hourly'
+				data-testid='wind-direction'
+				className={getWindDirClass()}
+			>
 				<ArrowIcon />
 			</div>
 			<span className='drop-icon'>
@@ -28,6 +32,7 @@ const HourlyCard = ({ hourlyData }) => {
 			</span>
 			<img
 				className='hourly-icon'
+				data-testid='hrIcon'
 				src={icon}
 				alt={hourlyData.condition.text}
 			/>
