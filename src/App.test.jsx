@@ -35,25 +35,29 @@ describe('loading', () => {
 		render(<MockApp />);
 	});
 
-	it('should display loader while loading', async () => {
+	it('should display loader while loading', () => {
 		waitFor(async () => {
-			const loader = await screen.findByTestId(/spinner/i);
-
-			expect(loader).toBeInTheDocument();
+			expect(await screen.findByTestId(/spinner/i)).toBeInTheDocument();
 		});
 	});
 	it('should not display landing page', () => {
-		const heading = screen.findAllByRole('heading');
-		expect(heading).not.toBeNull();
+		waitFor(async () => {
+			const heading = screen.queryAllByRole('heading');
+
+			expect(heading.length).toEqual(0);
+		});
+		// const heading = await screen.findAllByRole('heading');
+		// screen.debug(heading);
+		// expect(heading.length).toEqual(0);
 	});
 	it('should not display forecasts', () => {
 		const current = screen.queryAllByTestId(/current-section/i);
 		const hourly = screen.queryAllByTestId(/hourly-section/i);
 		const extended = screen.queryAllByTestId(/extended-section/i);
 
-		expect(current).not.toBeNull();
-		expect(hourly).not.toBeNull();
-		expect(extended).not.toBeNull();
+		expect(current.length).toEqual(0);
+		expect(hourly.length).toEqual(0);
+		expect(extended.length).toEqual(0);
 	});
 });
 
