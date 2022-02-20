@@ -3,7 +3,7 @@ import CurrentCard from './CurrentCard';
 
 const CurrentSection = ({ forecast }) => {
 	return (
-		<div id='current-container' data-testid='current-container'>
+		<div id='current-container' data-testid='current-section'>
 			<CurrentCard forecast={forecast} />
 		</div>
 	);

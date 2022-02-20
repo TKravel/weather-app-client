@@ -2,7 +2,7 @@ import React from 'react';
 
 const Spinner = () => {
 	return (
-		<div id='spinner-wrapper'>
+		<div id='spinner-wrapper' data-testid='spinner'>
 			<div className='spinner-card'>
 				<svg
 					className='spinner-svg'

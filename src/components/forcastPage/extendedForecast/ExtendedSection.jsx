@@ -3,7 +3,7 @@ import ExtendedCard from './ExtendedCard';
 
 const ExtenedSection = ({ extendedForecast }) => {
 	return (
-		<div id='extended-container'>
+		<div id='extended-container' data-testid='extended-section'>
 			{extendedForecast.map((day, index) => {
 				return <ExtendedCard key={index} cardData={day} />;
 			})}
