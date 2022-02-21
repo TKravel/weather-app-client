@@ -26,9 +26,9 @@ To protect the weather API key requests and responses are proxied through an Exp
 
 1. Client and server code installed
 2. [WeatherAPI](https://weatherAPI.com) accout
-   -Valid WeatherAPI api key
+    - Valid WeatherAPI api key
 3. [Google Cloud Platform](https://cloud.google.com/) account
-   -1 Valid API key with Maps JavaScript API and Place API enabled
+    - Valid API key with Maps JavaScript API and Place API enabled
 
 #### Installation
 
