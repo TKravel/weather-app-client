@@ -1,20 +1,36 @@
 # Weather app client code
 
-A weather app built with React.js. Search input connects to Google places API autocomplete and is powered by WeatherAPI data proxied through a Express.js server
+A Full Stack weather app built with React.js, Node.js, and Express.js. The client code allows users to input a search location by city, state, zip code, or find users current location if their device has an available Geolocation API. Location search is powered by autocomplete by utilizing Google Places API. On search submission requests and responses to a weather API are proxied through a Express.js server to protect sensitive data from the client. Returned data is then consumed by the client to display current, twenty-four hour, and three-day extended forecasts to the user.
+
+Tech used:
+
+1. Front-End:
+    - React hooks
+    - Google Places API (Autocomplete)
+    - Geolocation API
+    - CSS3
+    - Testing with Testing-Library, Jest, and MSW
+2. Back-End:
+    - Node.js
+    - Express.js
+    - node-fetch package
+    - cors package
+
+[LIVE DEMO](https://eloquent-bardeen-6340b4.netlify.app)
 
 ## Server code
 
-To protect the API key requests are forwarded from a Express server. Server code can be found at https://github.com/TKravel/weather-app-server
+To protect the weather API key requests and responses are proxied through an Express server to take advantage of environment variables. Server code can be found at: [github.com/TKravel/weather-app-server](https://github.com/TKravel/weather-app-server)
 
-## Requirements
+### Requirements to run locally
 
 1. Client and server code installed
-2. WeatherAPI accout (https://weatherAPI.com)
+2. [WeatherAPI](https://weatherAPI.com) accout
    ..1. Valid WeatherAPI api key
-3. Google Cloud Platform account
+3. [Google Cloud Platform](https://cloud.google.com/) account
    ..1 Valid API key with Maps JavaScript API and Place API enabled
 
-## Installation
+#### Installation
 
 Clone this repository. From the root of the directory run:
 
@@ -30,12 +46,12 @@ npm install
 ```
 
 Create a .dotenv file in the server root directory
-Follow the server README to set up enivorment variables then run:
+Follow the server [README](https://github.com/TKravel/weather-app-server/blob/main/README.md) to set up enivorment variables then run:
 
 ```bash
 node index.js
 ```
 
-## Demo
+#### Demo
 
-A working demo can be found at https://eloquent-bardeen-6340b4.netlify.app
+A working demo can be found at: [WeatherApp](https://eloquent-bardeen-6340b4.netlify.app)
